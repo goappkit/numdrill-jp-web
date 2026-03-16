@@ -272,72 +272,11 @@
       display: block;
     }
 
-    .phone-frame {
-      background: var(--text);
-      border-radius: 38px;
-      padding: 14px;
-      box-shadow: 0 24px 64px rgba(0,0,0,.22);
-    }
-
-    .phone-screen {
-      background: #fff;
+    .screenshot-img {
+      width: 100%;
       border-radius: 28px;
-      overflow: hidden;
-      aspect-ratio: 9/18;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .phone-screen-head {
-      background: var(--red);
-      padding: 24px 16px 16px;
-    }
-
-    .phone-screen-head .psh-title {
-      color: rgba(255,255,255,.7);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .phone-screen-head .psh-kanji {
-      color: #fff;
-      font-size: 42px;
-      font-weight: 700;
-      font-family: serif;
-      margin: 4px 0 0;
-    }
-
-    .phone-screen-body {
-      flex: 1;
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      background: var(--bg);
-    }
-
-    .mock-choice {
-      background: #fff;
-      border: 1.5px solid var(--border);
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .mock-choice.correct {
-      border-color: #2E7D32;
-      background: #E8F5E9;
-      color: #2E7D32;
-    }
-
-    .mock-choice.wrong {
-      border-color: var(--red);
-      background: var(--red-light);
-      color: var(--red);
+      box-shadow: 0 24px 64px rgba(0,0,0,.22);
+      display: block;
     }
 
     .about-text h2 { margin-bottom: 20px; }
@@ -630,22 +569,9 @@
     <div class="container">
       <div class="about-layout">
 
-        <!-- Phone mockup -->
+        <!-- App screenshot -->
         <div class="phone-mockup">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <div class="phone-screen-head">
-                <div class="psh-title">B5 · 時刻·分</div>
-                <div class="psh-kanji">6分</div>
-              </div>
-              <div class="phone-screen-body">
-                <div class="mock-choice">にふん</div>
-                <div class="mock-choice wrong">ろくふん</div>
-                <div class="mock-choice correct">ろっぷん ✓</div>
-                <div class="mock-choice">ろくぷん</div>
-              </div>
-            </div>
-          </div>
+          <img src="screenshot.png" alt="JP Numbers Drill app screenshot" class="screenshot-img" />
         </div>
 
         <!-- Text -->
