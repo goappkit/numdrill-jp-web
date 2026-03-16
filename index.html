@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JP Numbers Drill – Master Japanese Number Readings</title>
+  <meta name="description" content="JP Numbers Drill helps you master Japanese number readings — counters, dates, time, prices and more — through targeted daily practice." />
+  <meta name="keywords" content="Japanese numbers, Japanese counters, JLPT, Japanese drill, number reading, 数字, 助数詞" />
+  <meta name="author" content="GoAppKit" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="JP Numbers Drill – Master Japanese Number Readings" />
+  <meta property="og:description" content="Targeted daily practice for Japanese number readings: counters, dates, time, prices and more." />
+  <meta property="og:image" content="og-image.png" />
+  <meta property="og:url" content="https://jpnumbersdrill.goappkit.com" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JP Numbers Drill" />
+  <meta name="twitter:description" content="Master Japanese number readings through targeted daily practice." />
+
+  <!-- Favicon (inline SVG data URI) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23C62828'/%3E%3Ctext x='32' y='46' font-family='serif' font-size='42' font-weight='600' fill='white' text-anchor='middle'%3E数%3C/text%3E%3C/svg%3E" />
+
+  <style>
+    /* ── Reset & Base ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:        #C62828;
+      --red-dark:   #B71C1C;
+      --red-light:  #FFEBEE;
+      --text:       #212121;
+      --text-sub:   #757575;
+      --text-hint:  #BDBDBD;
+      --bg:         #F5F5F5;
+      --card:       #FFFFFF;
+      --border:     #E0E0E0;
+      --max-width:  1100px;
+      --radius:     16px;
+      --shadow:     0 2px 16px rgba(0,0,0,.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Nav ───────────────────────────────────────────────────── */
+    nav {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    nav .logo-icon {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    nav .logo-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.3px;
+    }
+
+    nav .nav-links {
+      margin-left: auto;
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    nav .nav-links a {
+      font-size: 14px;
+      color: var(--text-sub);
+      transition: color .2s;
+    }
+
+    nav .nav-links a:hover { color: var(--red); text-decoration: none; }
+
+    /* ── Hero ──────────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(160deg, #fff 0%, var(--red-light) 100%);
+      padding: 80px 24px 72px;
+      text-align: center;
+    }
+
+    .hero-icon {
+      width: 108px;
+      height: 108px;
+      border-radius: 26px;
+      box-shadow: 0 8px 32px rgba(198,40,40,.28);
+      margin: 0 auto 28px;
+      display: block;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span { color: var(--red); }
+
+    .hero p.tagline {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--text-sub);
+      max-width: 520px;
+      margin: 0 auto 36px;
+    }
+
+    .store-badges {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--text);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 500;
+      transition: transform .2s, box-shadow .2s;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+    }
+
+    .badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,.2);
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .badge .badge-store { font-size: 10px; opacity: .7; display: block; }
+    .badge .badge-name  { font-size: 16px; font-weight: 700; display: block; }
+
+    .badge svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+    /* ── Section base ─────────────────────────────────────────── */
+    section { padding: 72px 0; }
+    section:nth-child(even) { background: var(--card); }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--text-sub);
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+
+    /* ── Features grid ────────────────────────────────────────── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    section:nth-child(even) .feature-card {
+      background: var(--bg);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--red-light);
+      color: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 22px;
+    }
+
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    /* ── About ────────────────────────────────────────────────── */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (max-width: 680px) {
+      .about-layout { grid-template-columns: 1fr; }
+    }
+
+    .phone-mockup {
+      width: 100%;
+      max-width: 260px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .phone-frame {
+      background: var(--text);
+      border-radius: 38px;
+      padding: 14px;
+      box-shadow: 0 24px 64px rgba(0,0,0,.22);
+    }
+
+    .phone-screen {
+      background: #fff;
+      border-radius: 28px;
+      overflow: hidden;
+      aspect-ratio: 9/18;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phone-screen-head {
+      background: var(--red);
+      padding: 24px 16px 16px;
+    }
+
+    .phone-screen-head .psh-title {
+      color: rgba(255,255,255,.7);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .phone-screen-head .psh-kanji {
+      color: #fff;
+      font-size: 42px;
+      font-weight: 700;
+      font-family: serif;
+      margin: 4px 0 0;
+    }
+
+    .phone-screen-body {
+      flex: 1;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background: var(--bg);
+    }
+
+    .mock-choice {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .mock-choice.correct {
+      border-color: #2E7D32;
+      background: #E8F5E9;
+      color: #2E7D32;
+    }
+
+    .mock-choice.wrong {
+      border-color: var(--red);
+      background: var(--red-light);
+      color: var(--red);
+    }
+
+    .about-text h2 { margin-bottom: 20px; }
+
+    .about-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .about-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .about-list .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    .about-list strong { display: block; font-size: 15px; font-weight: 700; }
+    .about-list span { font-size: 14px; color: var(--text-sub); }
+
+    /* ── Privacy ──────────────────────────────────────────────── */
+    .privacy-card {
+      background: var(--red-light);
+      border: 1px solid rgba(198,40,40,.18);
+      border-radius: var(--radius);
+      padding: 36px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      max-width: 640px;
+    }
+
+    .privacy-card .privacy-icon {
+      font-size: 36px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .privacy-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .privacy-card p {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+    .privacy-card p + p { margin-top: 8px; }
+
+    .privacy-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--red-dark);
+      background: #fff;
+      border: 1px solid rgba(198,40,40,.25);
+      border-radius: 100px;
+      padding: 5px 14px;
+    }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,.65);
+      padding: 48px 0 36px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-brand svg {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+
+    .footer-brand span {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,.55);
+      font-size: 13px;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: #fff; text-decoration: none; }
+
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy { font-size: 13px; }
+
+    .footer-email a {
+      color: rgba(255,255,255,.55);
+      font-size: 13px;
+      transition: color .2s;
+    }
+
+    .footer-email a:hover { color: #fff; text-decoration: none; }
+
+    /* ── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      section { padding: 56px 0; }
+      .hero { padding: 56px 24px 56px; }
+      .privacy-card { flex-direction: column; gap: 16px; padding: 24px; }
+      nav .nav-links { display: none; }
+      .footer-top { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────────── -->
+  <nav>
+    <div class="inner">
+      <!-- App icon inline SVG -->
+      <svg class="logo-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="navbg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#E53935"/>
+            <stop offset="100%" stop-color="#B71C1C"/>
+          </linearGradient>
+        </defs>
+        <rect width="64" height="64" rx="14" fill="url(#navbg)"/>
+        <text x="32" y="46" font-family="serif" font-size="42" font-weight="600" fill="white" text-anchor="middle">数</text>
+      </svg>
+      <span class="logo-name">JP Numbers Drill</span>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── Hero ───────────────────────────────────────────────── -->
+  <header class="hero">
+    <svg class="hero-icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="herobg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#E53935"/>
+          <stop offset="100%" stop-color="#B71C1C"/>
+        </linearGradient>
+      </defs>
+      <rect width="1024" height="1024" fill="url(#herobg)"/>
+      <rect x="200" y="240" width="624" height="516" rx="40"
+            fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.22)" stroke-width="2"/>
+      <text x="512" y="548" font-family="'Hiragino Mincho ProN','Yu Mincho',Georgia,serif"
+            font-size="340" font-weight="600" fill="white" text-anchor="middle">数</text>
+      <text x="512" y="716" font-family="'Hiragino Kaku Gothic ProN','Helvetica Neue',sans-serif"
+            font-size="88" font-weight="400" letter-spacing="20"
+            fill="rgba(255,255,255,0.95)" text-anchor="middle">すうじ</text>
+    </svg>
+
+    <h1>Master Japanese<br><span>Number Readings</span></h1>
+    <p class="tagline">
+      From counters to dates, time to prices — build fluency in
+      Japanese numbers through focused daily practice.
+    </p>
+
+    <div class="store-badges">
+      <!-- App Store badge -->
+      <a class="badge" href="#" aria-label="Download on the App Store">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/>
+        </svg>
+        <span>
+          <span class="badge-store">Download on the</span>
+          <span class="badge-name">App Store</span>
+        </span>
+      </a>
+
+      <!-- Google Play badge -->
+      <a class="badge" href="#" aria-label="Get it on Google Play">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3.18 23.76c.49.27 1.06.28 1.56.03l11.29-6.37-2.5-2.5zm14.12-9.6L14.89 12l2.41-2.16 3.12 1.76c.9.51.9 1.78 0 2.28zM3 .24C2.5-.03 1.93-.06 1.43.2L13.39 12 3 23.8V.24zm11.89 10.23L3.18.24c.49-.27 1.06-.25 1.54.02z"/>
+        </svg>
+        <span>
+          <span class="badge-store">Get it on</span>
+          <span class="badge-name">Google Play</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ── Features ───────────────────────────────────────────── -->
+  <section id="features">
+    <div class="container">
+      <p class="section-label">Features</p>
+      <h2 class="section-title">Everything you need to<br>read numbers in Japanese</h2>
+      <p class="section-sub">Comprehensive coverage of the patterns and irregularities that trip up learners at every level.</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📚</div>
+          <h3>486 Curated Entries</h3>
+          <p>8 topic banks covering plain numbers, dates, time, counters, currency, decimals, phone numbers and measurements — all with readings and notes.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>4 Practice Modes</h3>
+          <p>Multiple-choice, typing, listening, and sequential reading. Switch modes any time to reinforce the same vocabulary from different angles.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔁</div>
+          <h3>Wrong-Answer Drill</h3>
+          <p>Every incorrect answer is automatically logged. Come back to drill exactly your weak points until nothing trips you up.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⭐</div>
+          <h3>Favorites & Review</h3>
+          <p>Star any entry to build a personal study list. Practice only your favorites when you want targeted revision before an exam.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h3>Daily Progress Tracking</h3>
+          <p>See today's practice count, overall accuracy, and lifetime stats at a glance. An encouraging quote keeps you motivated every session.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About ──────────────────────────────────────────────── -->
+  <section id="about">
+    <div class="container">
+      <div class="about-layout">
+
+        <!-- Phone mockup -->
+        <div class="phone-mockup">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="phone-screen-head">
+                <div class="psh-title">B5 · 時刻·分</div>
+                <div class="psh-kanji">6分</div>
+              </div>
+              <div class="phone-screen-body">
+                <div class="mock-choice">にふん</div>
+                <div class="mock-choice wrong">ろくふん</div>
+                <div class="mock-choice correct">ろっぷん ✓</div>
+                <div class="mock-choice">ろくぷん</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="about-text">
+          <p class="section-label">About the App</p>
+          <h2 class="section-title">Built for the one thing textbooks skip</h2>
+          <ul class="about-list">
+            <li>
+              <span class="dot"></span>
+              <div>
+                <strong>Solve the irregular-reading problem</strong>
+                <span>Japanese numbers change sound depending on context. JP Numbers Drill focuses specifically on those patterns — ぷん vs ふん, よじ vs よんじ, ついたち, はつか — with notes explaining why.</span>
+              </div>
+            </li>
+            <li>
+              <span class="dot"></span>
+              <div>
+                <strong>For anyone studying Japanese</strong>
+                <span>Beginners building foundations, JLPT N5–N3 students, or advanced learners who want to eliminate hesitation when encountering numbers in the wild.</span>
+              </div>
+            </li>
+            <li>
+              <span class="dot"></span>
+              <div>
+                <strong>5 minutes a day is enough</strong>
+                <span>Short, focused sessions fit into commutes or breaks. The spaced-repetition logic ensures your time is spent on what actually needs work.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Privacy ────────────────────────────────────────────── -->
+  <section id="privacy">
+    <div class="container">
+      <p class="section-label">Privacy</p>
+      <h2 class="section-title">Your data stays on your device</h2>
+      <p class="section-sub">We built JP Numbers Drill with a simple principle: you shouldn't have to hand over your data to learn a language.</p>
+
+      <div class="privacy-card">
+        <div class="privacy-icon">🔒</div>
+        <div>
+          <h3>No cloud. No tracking.</h3>
+          <p>All data — your progress, wrong answers, favorites and stats — is stored locally on your device only.</p>
+          <p>No account required. No analytics. No ads. No personal information ever leaves your phone.</p>
+          <div class="privacy-pills">
+            <span class="pill">✓ Local storage only</span>
+            <span class="pill">✓ No account needed</span>
+            <span class="pill">✓ No tracking</span>
+            <span class="pill">✓ No ads</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="ftbg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#E53935"/>
+                <stop offset="100%" stop-color="#B71C1C"/>
+              </linearGradient>
+            </defs>
+            <rect width="64" height="64" rx="10" fill="url(#ftbg)"/>
+            <text x="32" y="46" font-family="serif" font-size="42" font-weight="600" fill="white" text-anchor="middle">数</text>
+          </svg>
+          <span>JP Numbers Drill</span>
+        </div>
+        <ul class="footer-links">
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="mailto:support.numdrill-jp@goappkit.com">Contact</a></li>
+        </ul>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 GoAppKit. All rights reserved.</span>
+        <span class="footer-email"><a href="mailto:support.numdrill-jp@goappkit.com">support.numdrill-jp@goappkit.com</a></span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
